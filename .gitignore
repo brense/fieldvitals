@@ -4,3 +4,14 @@
 *.tsbuildinfo
 .DS_Store
 .env*
+
+/examples/*/node_modules
+/examples/*/.next
+/examples/*/next-env.d.ts
+/examples/*/*.tgz
+/examples/*/*.db*
+# The lockfile pins the hash of the packed library, which changes with every build
+/examples/*/bun.lock
+
+# Server output of an example
+/examples/*/*.log

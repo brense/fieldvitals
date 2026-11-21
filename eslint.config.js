@@ -7,5 +7,5 @@ export default defineConfig([
   js.configs.recommended,
   tseslint.configs.recommended,
   prettier,
-  globalIgnores(["dist/**"]),
+  globalIgnores(["dist/**", "examples/*/.next/**", "examples/*/next-env.d.ts"]),
 ]);

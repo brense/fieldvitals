@@ -1,6 +1,6 @@
 {
   "name": "@brows/fieldvitals",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.1",
   "description": "Web vitals from real visitors, stored in the database your site already has",
   "license": "MIT",
   "author": "Rense Bakker",
@@ -28,6 +28,18 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./next": {
+      "types": "./dist/next.d.ts",
+      "default": "./dist/next.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
+    },
+    "./dashboard": {
+      "types": "./dist/dashboard.d.ts",
+      "default": "./dist/dashboard.js"
+    },
     "./store/memory": {
       "types": "./dist/store/memory.d.ts",
       "default": "./dist/store/memory.js"
@@ -43,7 +55,8 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "example:pack": "bun run build && bun pm pack --filename examples/next/fieldvitals.tgz && cd examples/next && rm -f bun.lock && bun install --force --no-cache"
   },
   "prettier": {
     "printWidth": 100,
@@ -52,10 +65,18 @@
     "trailingComma": "all"
   },
   "peerDependencies": {
-    "@libsql/client": ">=0.14.0 <1"
+    "@libsql/client": ">=0.14.0 <1",
+    "next": ">=16",
+    "react": ">=19"
   },
   "peerDependenciesMeta": {
     "@libsql/client": {
+      "optional": true
+    },
+    "next": {
+      "optional": true
+    },
+    "react": {
       "optional": true
     }
   },
@@ -64,9 +85,14 @@
     "@eslint/js": "^9.39.5",
     "@libsql/client": "^0.18.0",
     "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
+    "next": "16.4.6",
     "prettier": "^3.9.10",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.72.1",
     "vitest": "^5.1.0"
